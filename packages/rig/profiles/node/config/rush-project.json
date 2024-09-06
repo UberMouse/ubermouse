@@ -1,0 +1,34 @@
+{
+  "operationSettings": [
+    {
+      "operationName": "_phase:build",
+      "outputFolderNames": ["dist", "dist-cjs"]
+    },
+    {
+      "operationName": "_phase:lint",
+      "outputFolderNames": []
+    },
+    {
+      "operationName": "_phase:test",
+      "outputFolderNames": ["temp/coverage"],
+      "weight": 999
+    },
+    {
+      "operationName": "_phase:build-storybook",
+      "outputFolderNames": ["storybook-static"],
+      "weight": 4
+    },
+    {
+      "operationName": "_phase:chromatic",
+      "outputFolderNames": []
+    },
+    {
+      "operationName": "_phase:qa",
+      "outputFolderNames": []
+    },
+    {
+      "operationName": "_phase:package",
+      "outputFolderNames": ["out"]
+    }
+  ]
+}

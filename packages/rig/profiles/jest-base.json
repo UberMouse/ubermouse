@@ -1,0 +1,12 @@
+{
+  "$schema": "https://askirmas.github.io/jest.schema.json",
+  "extends": "@rushstack/heft-jest-plugin/includes/jest-web.config.json",
+  "prettierPath": "prettier2",
+  "roots": ["<rootDir>/lib"],
+  "testMatch": [
+    "<rootDir>/lib/**/?(*.)(spec|test|integration).js?(x)"
+  ],
+  "moduleNameMapper": {
+    "^(\\.{1,2}/.*)\\.js$": "$1"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "$schema": "https://askirmas.github.io/jest.schema.json",
+  "extends": "../../jest-base.json",
+  "testEnvironment": "jsdom" 
+}

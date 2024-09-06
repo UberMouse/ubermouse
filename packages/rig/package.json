@@ -1,0 +1,28 @@
+{
+  "name": "@u/rush-rig",
+  "version": "1.0.0",
+  "scripts": {},
+  "dependencies": {
+    "@rushstack/heft-jest-plugin": "0.12.0",
+    "eslint": "8.57.0",
+    "typescript": "5.5.3",
+    "@rushstack/rig-package": "0.5.1",
+    "@rushstack/node-core-library": "5.7.0",
+    "@microsoft/rush-lib": "5.133.3",
+    "jest-jasmine2": "30.0.0-alpha.6",
+    "jest": "30.0.0-alpha.6",
+    "@rushstack/heft": "0.67.0",
+    "@rushstack/heft-lint-plugin": "0.4.0",
+    "@rushstack/heft-typescript-plugin": "0.5.0",
+    "@rushstack/terminal": "0.14.0",
+    "prettier2": "npm:prettier@2.8.8",
+    "@types/heft-jest": "1.0.6",
+    "@types/node": "20.11.18",
+    "jest-environment-node": "~29.7.0",
+    "jest-environment-jsdom": "~29.7.0"
+  },
+  "devDependencies": {
+    "@swc/core": "1.7.3",
+    "@swc/jest": "0.2.36"
+  }
+}

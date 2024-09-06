@@ -1,0 +1,22 @@
+{
+  "name": "@test/consumer-b",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "module": "lib/index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "_phase:build": "heft build --clean --production"
+  },
+  "dependencies": {
+    "@test/source": "workspace:*"
+  },
+  "devDependencies": {
+    "@rushstack/heft": "0.67.0",
+    "eslint": "8.57.0",
+    "typescript": "5.5.3",
+    "@u/eslint-config": "workspace:*",
+    "@u/rush-rig": "workspace:*"
+  }
+}

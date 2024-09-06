@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush-plugin-manifest.schema.json",
+  "plugins": [
+    {
+      "pluginName": "rename-exports",
+
+      "description": "Rename exports in a package",
+
+      /**
+       * (Optional) A path to a "command-line.json" file that defines Rush command line actions
+       * and parameters contributed by this plugin.  This config file has the same JSON schema
+       * as Rush's "common/config/rush/command-line.json" file.
+       */
+      "commandLineJsonFilePath": "./command-line.json"
+
+    }
+  ]
+}

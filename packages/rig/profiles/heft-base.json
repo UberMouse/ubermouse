@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/heft/v0/heft.schema.json",
+  "phasesByName": {
+    "build": {
+      "cleanFiles": [{ "includeGlobs": ["lib", "lib-cjs"] }],
+
+      "tasksByName": {
+        "pre-compile-copy": {
+          "taskPlugin": {
+            "pluginPackage": "@rushstack/heft",
+            "pluginName": "copy-files-plugin",
+            "options": {
+              "copyOperations": []
+            }
+          }
+        },
+        "typescript": {
+          "taskDependencies": ["pre-compile-copy"],
+          "taskPlugin": {
+            "pluginPackage": "@rushstack/heft-typescript-plugin"
+          }
+        }
+      }
+    },
+    
+    "test": {
+      "phaseDependencies": ["build"],
+      "tasksByName": {
+        "jest": {
+          "taskPlugin": {
+            "pluginPackage": "@rushstack/heft-jest-plugin",
+            "options": {
+              "enableNodeEnvManagement": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

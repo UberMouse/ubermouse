@@ -1,0 +1,32 @@
+{
+  "name": "@u/rush-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "heft build --clean --production",
+    "test": "heft test",
+    "_phase:build": "heft build --clean --production",
+    "_phase:test": "heft run --only test",
+    "_phase:build-watch": "heft build"
+  },
+  "devDependencies": {
+    "@rushstack/heft": "0.67.0",
+    "eslint": "8.57.0",
+    "typescript": "5.5.3",
+    "@u/eslint-config": "workspace:*",
+    "@u/rush-rig": "workspace:*",
+    "memfs": "4.11.1",
+    "@types/lodash-es": "4.17.12"
+  },
+  "dependencies": {
+    "@u/transform-executor": "workspace:*",
+    "@u/code-transform": "workspace:*",
+    "@microsoft/rush-lib": "5.133.3",
+    "lodash-es": "4.17.21",
+    "@rushstack/rush-sdk": "~5.133.4"
+  }
+}

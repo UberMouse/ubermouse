@@ -1,0 +1,1 @@
+module.exports = require("../wallaby-jest-config-shim-base");

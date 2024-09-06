@@ -1,0 +1,25 @@
+{
+  "name": "@u/eslint-config",
+  "version": "1.0.0",
+  "description": "Shared ESLint config for UberMouse",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "",
+    "lint": "",
+    "test": ""
+  },
+  "devDependencies": {
+    "@rushstack/eslint-config": "4.0.1",
+    "lodash": "4.17.21",
+    "eslint-import-resolver-typescript": "3.6.0",
+    "eslint-plugin-import": "2.29.0",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-prettier": "5.2.1",
+    "@typescript-eslint/eslint-plugin": "8.4.0",
+    "eslint": "8.57.0",
+    "prettier": "3.3.2",
+    "typescript": "5.5.3",
+    "@typescript-eslint/parser": "8.4.0",
+    "prettier2": "npm:prettier@2.8.8"
+  }
+}

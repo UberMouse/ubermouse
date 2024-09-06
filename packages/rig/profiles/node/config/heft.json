@@ -1,0 +1,23 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/heft/v0/heft.schema.json",
+
+  "extends": "../../heft-base.json",
+
+  "phasesByName": {
+    "execute": {
+      "phaseDependencies": ["build"],
+      "phaseDescription": "Runs the Heft script the package exports",
+      "tasksByName": {
+        "run": {
+          "taskPlugin": {
+            "pluginPackage": "@rushstack/heft",
+            "pluginName": "run-script-plugin",
+            "options": {
+              "scriptPath": "dist/run.js"
+            }
+          }
+        }
+      }
+    }
+  }
+}

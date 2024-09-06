@@ -1,0 +1,34 @@
+{
+  "name": "@u/code-transform",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "heft build --clean --production",
+    "test": "heft test",
+    "_phase:build": "heft build --clean --production",
+    "_phase:test": "heft run --only test",
+    "_phase:build-watch": "heft build"
+  },
+  "devDependencies": {
+    "@rushstack/heft": "0.67.0",
+    "eslint": "8.57.0",
+    "typescript": "5.5.3",
+    "@u/eslint-config": "workspace:*",
+    "@babel/generator": "7.25.6",
+    "@babel/parser": "7.25.6",
+    "@babel/types": "7.25.6",
+    "@types/babel__generator": "7.6.8",
+    "@types/babel__traverse": "7.20.6",
+    "@u/rush-rig": "workspace:*",
+    "jest": "30.0.0-alpha.6",
+    "@swc/jest": "0.2.36"
+  },
+  "dependencies": {
+    "@babel/traverse": "7.25.6",
+    "@babel/types": "7.25.6",
+    "@swc/core": "1.7.3"
+  }
+}

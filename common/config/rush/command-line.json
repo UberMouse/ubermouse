@@ -1,0 +1,117 @@
+/**
+ * This configuration file defines custom commands for the "rush" command-line.
+ * For full documentation, please see https://rushjs.io
+ */
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/command-line.schema.json",
+  "phases": [
+    {
+      "name": "_phase:build",
+      "dependencies": {
+        "upstream": ["_phase:build"]
+      },
+      "allowWarningsOnSuccess": true,
+      "missingScriptBehavior": "silent"
+    }, 
+    {
+      "name": "_phase:build-watch",
+      "dependencies": {
+        "self": ["_phase:build"]
+      },
+      "missingScriptBehavior": "silent"
+    },
+    {
+      "name": "_phase:test",
+      "dependencies": {
+        "self": ["_phase:build"]
+      },
+      "allowWarningsOnSuccess": true,
+      "missingScriptBehavior": "log"
+    },
+  ],
+
+  /**
+   * Custom "commands" introduce new verbs for the command-line.  To see the help for these
+   * example commands, try "rush --help", "rush my-bulk-command --help", or
+   * "rush my-global-command --help".
+   */
+  "commands": [
+    {
+      "commandKind": "phased",
+      "name": "build",
+      "phases": ["_phase:build"],
+      "enableParallelism": true,
+      "incremental": true,
+      "watchOptions": {
+        "alwaysWatch": false,
+        "watchPhases": ["_phase:build-watch"]
+      }
+    },
+    {
+      "commandKind": "phased",
+      "name": "test",
+      "summary": "Build and test all projects.",
+      "phases": ["_phase:test"],
+      "enableParallelism": true,
+      "incremental": true
+    },
+    {
+      "commandKind": "phased",
+      "name": "retest",
+      "summary": "Build and test all projects.",
+      "phases": ["_phase:build", "_phase:test"],
+      "enableParallelism": true
+    }
+  ],
+
+  /**
+   * Custom "parameters" introduce new parameters for specified Rush command-line commands.
+   * For example, you might define a "--production" parameter for the "rush build" command.
+   */
+  "parameters": [
+    {
+      "parameterKind": "flag",
+      "longName": "--production",
+      "description": "Production builds",
+      "associatedCommands": ["build", "rebuild", "test", "retest"],
+      "associatedPhases": ["_phase:build"]
+    },
+    {
+      "parameterKind": "flag",
+      "longName": "--silent",
+      "description": "Suppress test output",
+      "associatedCommands": ["test", "retest"],
+      "associatedPhases": ["_phase:test"]
+    },
+    {
+      "parameterKind": "flag",
+      "longName": "--fix",
+      "description": "Automatically fix eslint issues",
+      "associatedCommands": ["build"],
+      "associatedPhases": ["_phase:build"]
+    },
+    {
+      "parameterKind": "flag",
+      "longName": "--quiet",
+      "description": "Suppress eslint warnings",
+      "associatedCommands": ["build"],
+      "associatedPhases": ["_phase:build"]
+    },
+    {
+      "parameterKind": "flag",
+      "longName": "--update-snapshots",
+      "description": "Update jest snapshots",
+      "associatedCommands": ["test", "retest"],
+      "associatedPhases": ["_phase:test"]
+    },
+    {
+      "parameterKind": "string",
+      "longName": "--max-workers",
+      "description": "Number of workers to use for jest",
+      "associatedCommands": ["test", "retest"],
+      "associatedPhases": ["_phase:test"],
+      "required": false,
+      "argumentName": "NUMBER_OR_PERCENTAGE"
+    }
+  ]
+}
