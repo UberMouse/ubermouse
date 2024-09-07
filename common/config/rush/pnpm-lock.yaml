@@ -224,6 +224,9 @@ importers:
       '@rushstack/rush-sdk':
         specifier: ~5.133.4
         version: 5.133.4
+      '@rushstack/ts-command-line':
+        specifier: 4.22.6
+        version: 4.22.6(@types/node@20.11.18)
       '@u/code-transform':
         specifier: workspace:*
         version: link:../code-transform

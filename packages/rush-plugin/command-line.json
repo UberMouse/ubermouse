@@ -8,5 +8,24 @@
       "shellCommand": "node <packageFolder>/lib/cli.js",
       "safeForSimultaneousRushProcesses": true
     }
+  ],
+  "parameters": [
+    {
+      "argumentName": "FROM_PACKAGE",
+      "description": "The package to rename symbols from",
+      "parameterKind": "string",
+      "associatedCommands": ["refactor"],
+      "required": true,
+      "longName": "--from",
+      "shortName": "-f"
+    },
+    {
+      "argumentName": "RENAME_SYMBOLS",
+      "description": "The symbols to rename in the format of 'from,to'",
+      "parameterKind": "stringList",
+      "associatedCommands": ["refactor"],
+      "longName": "--rename",
+      "shortName": "-r"
+    }
   ]
 }
