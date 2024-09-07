@@ -7,11 +7,16 @@ import { type OperationConfig } from "@u/code-transform";
 
 import type { WorkerArgs, WorkerResult } from "./worker.mjs";
 
+export interface Hooks {
+  onStart?: (fileCount: number) => void;
+  onFileComplete?: (file: string) => void;
+}
+
 export function _transformFiles(
   readFile: typeof _readFile,
   writeFile: typeof _writeFile,
-): (files: string[], config: OperationConfig) => Promise<void> {
-  return async (files, config) => {
+): (files: string[], config: OperationConfig, hooks: Hooks) => Promise<void> {
+  return async (files, config, hooks) => {
     const readQueue = new Queue({ concurrency: 10 });
     const writeQueue = new Queue({ concurrency: 10 });
 
@@ -38,6 +43,7 @@ export function _transformFiles(
         void piscina
           .run({ content, filePath })
           .then(({ content, filePath }) => {
+            hooks.onFileComplete?.(filePath);
             void writeQueue.add(async () => {
               await writeFile(filePath, content);
               readCount -= 1;

@@ -27,7 +27,7 @@ describe("engine", () => {
   it("should work", async () => {
     await execute({
       sourcePackageName: "@test/source",
-      operations: {},
+      config: {},
       fsOverrides,
     });
 
@@ -66,7 +66,7 @@ describe("engine", () => {
   it("performs rename operations", async () => {
     await execute({
       sourcePackageName: "@test/source",
-      operations: {
+      config: {
         rename: [
           {
             from: "a",

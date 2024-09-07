@@ -4,8 +4,11 @@ import {
   type CommandLineStringListParameter,
   type CommandLineStringParameter,
 } from "@rushstack/ts-command-line";
+import term from "terminal-kit";
 
 import { execute } from "./engine.js";
+
+const { terminal } = term;
 
 export class RefactorCommandLine extends CommandLineParser {
   private _verbose: CommandLineFlagParameter;
@@ -46,16 +49,34 @@ export class RefactorCommandLine extends CommandLineParser {
   }
 
   protected async onExecute(): Promise<void> {
+    const progressBar = terminal.progressBar({
+      percent: true,
+      eta: true,
+    });
+
     await execute({
       sourcePackageName: this._fromPackage.value!,
-      operations: {
+      config: {
         rename: this._renameSymbols.values.map((value) => {
           const [from, to] = value.split(",");
 
           return { from, to, importTarget: this._fromPackage.value! };
         }),
       },
+      hooks: {
+        onStart: (fileCount): void => {
+          terminal(
+            `Starting refactoring of exported symbols from ${this._fromPackage.value!}\n`,
+          );
+          progressBar.update({ progress: 0, items: fileCount });
+        },
+        onFileComplete(file) {
+          progressBar.itemDone(file);
+        },
+      },
     });
+
+    terminal.green.bold("\nRefactoring complete\n");
 
     process.exit(0);
   }

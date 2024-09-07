@@ -57,7 +57,7 @@ export async function transformCode(
   });
   let dirty = false;
 
-  function markDirty() {
+  function markDirty(): void {
     dirty = true;
   }
 

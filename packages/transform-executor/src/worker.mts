@@ -16,7 +16,6 @@ export default async function transformFile({
 }: WorkerArgs): Promise<WorkerResult> {
   const config = workerData as OperationConfig;
 
-  console.log("transforming", filePath);
   try {
     const result = await transformCode(content, config);
 

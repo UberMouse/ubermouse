@@ -20,7 +20,8 @@
     "@u/eslint-config": "workspace:*",
     "@u/rush-rig": "workspace:*",
     "memfs": "4.11.1",
-    "@types/lodash-es": "4.17.12"
+    "@types/lodash-es": "4.17.12",
+    "@types/terminal-kit": "~2.5.6"
   },
   "dependencies": {
     "@u/transform-executor": "workspace:*",
@@ -28,6 +29,7 @@
     "@microsoft/rush-lib": "5.133.3",
     "lodash-es": "4.17.21",
     "@rushstack/rush-sdk": "~5.133.4",
-    "@rushstack/ts-command-line": "4.22.6"
+    "@rushstack/ts-command-line": "4.22.6",
+    "terminal-kit": "~3.1.1"
   }
 }
