@@ -3,12 +3,12 @@ import path from "path";
 import Rush from "@microsoft/rush-lib";
 import { parseJsonConfigFileContent, sys } from "typescript";
 
-import { type OperationConfig } from "@u/code-transform";
+import { type OperationConfig } from "@ubermouse/code-transform";
 import {
   _transformFiles as transformFilesFactory,
   transformFiles as defaultTransformFiles,
   type Hooks,
-} from "@u/transform-executor";
+} from "@ubermouse/transform-executor";
 
 type TransformFiles = Parameters<typeof transformFilesFactory>;
 

@@ -38,10 +38,10 @@ importers:
       '@types/babel__traverse':
         specifier: 7.20.6
         version: 7.20.6
-      '@u/eslint-config':
+      '@ubermouse/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@u/rush-rig':
+      '@ubermouse/rush-rig':
         specifier: workspace:*
         version: link:../rig
       eslint:
@@ -102,10 +102,10 @@ importers:
       '@rushstack/heft':
         specifier: 0.67.0
         version: 0.67.0(@types/node@20.11.18)
-      '@u/eslint-config':
+      '@ubermouse/eslint-config':
         specifier: workspace:*
         version: link:../../eslint-config
-      '@u/rush-rig':
+      '@ubermouse/rush-rig':
         specifier: workspace:*
         version: link:../../rig
       eslint:
@@ -124,10 +124,10 @@ importers:
       '@rushstack/heft':
         specifier: 0.67.0
         version: 0.67.0(@types/node@20.11.18)
-      '@u/eslint-config':
+      '@ubermouse/eslint-config':
         specifier: workspace:*
         version: link:../../eslint-config
-      '@u/rush-rig':
+      '@ubermouse/rush-rig':
         specifier: workspace:*
         version: link:../../rig
       eslint:
@@ -142,10 +142,10 @@ importers:
       '@rushstack/heft':
         specifier: 0.67.0
         version: 0.67.0(@types/node@20.11.18)
-      '@u/eslint-config':
+      '@ubermouse/eslint-config':
         specifier: workspace:*
         version: link:../../eslint-config
-      '@u/rush-rig':
+      '@ubermouse/rush-rig':
         specifier: workspace:*
         version: link:../../rig
       eslint:
@@ -227,10 +227,10 @@ importers:
       '@rushstack/ts-command-line':
         specifier: 4.22.6
         version: 4.22.6(@types/node@20.11.18)
-      '@u/code-transform':
+      '@ubermouse/code-transform':
         specifier: workspace:*
         version: link:../code-transform
-      '@u/transform-executor':
+      '@ubermouse/transform-executor':
         specifier: workspace:*
         version: link:../transform-executor
       lodash-es:
@@ -249,10 +249,10 @@ importers:
       '@types/terminal-kit':
         specifier: ~2.5.6
         version: 2.5.6
-      '@u/eslint-config':
+      '@ubermouse/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@u/rush-rig':
+      '@ubermouse/rush-rig':
         specifier: workspace:*
         version: link:../rig
       eslint:
@@ -270,7 +270,7 @@ importers:
       '@swc/core':
         specifier: 1.7.3
         version: 1.7.3
-      '@u/code-transform':
+      '@ubermouse/code-transform':
         specifier: workspace:*
         version: link:../code-transform
       p-queue:
@@ -286,10 +286,10 @@ importers:
       '@swc/jest':
         specifier: 0.2.36
         version: 0.2.36(@swc/core@1.7.3)
-      '@u/eslint-config':
+      '@ubermouse/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@u/rush-rig':
+      '@ubermouse/rush-rig':
         specifier: workspace:*
         version: link:../rig
       eslint:

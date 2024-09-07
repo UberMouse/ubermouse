@@ -3,7 +3,7 @@ import fs from "node:fs/promises";
 import Queue from "p-queue";
 import { Piscina } from "piscina";
 
-import { type OperationConfig } from "@u/code-transform";
+import { type OperationConfig } from "@ubermouse/code-transform";
 
 import type { WorkerArgs, WorkerResult } from "./worker.mjs";
 

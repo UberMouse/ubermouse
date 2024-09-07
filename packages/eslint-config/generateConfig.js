@@ -34,7 +34,7 @@ module.exports = function generateConfig(type) {
                   "group": "internal"
                 },
                 {
-                  "pattern": "@u/**/**",
+                  "pattern": "@ubermouse/**/**",
                   "group": "internal",
                   "position": "before"
                 }
@@ -79,7 +79,7 @@ module.exports = function generateConfig(type) {
         "settings": {
          "import/extensions": [".ts", ".tsx"],
          "import/ignore": ["node_modules"],
-         "import/internal-regex": "^@u/",
+         "import/internal-regex": "^@ubermouse/",
          "import/resolver": "typescript",
          "import/external-module-folders": ["node_modules", "node_modules/@types"],
           "react": {

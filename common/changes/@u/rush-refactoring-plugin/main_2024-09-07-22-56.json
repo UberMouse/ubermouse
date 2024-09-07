@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@ubermouse/rush-refactoring-plugin",
+      "comment": "Initial release",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@ubermouse/rush-refactoring-plugin"
+}

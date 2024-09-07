@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@ubermouse/transform-executor",
+      "comment": "initial release",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@ubermouse/transform-executor"
+}

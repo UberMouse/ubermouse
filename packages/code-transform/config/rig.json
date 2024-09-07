@@ -2,7 +2,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/rig-package/rig.schema.json",
 
-  "rigPackageName": "@u/rush-rig",
+  "rigPackageName": "@ubermouse/rush-rig",
 
   "rigProfile": "node"
 }

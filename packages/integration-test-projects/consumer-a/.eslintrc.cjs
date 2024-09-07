@@ -1,4 +1,4 @@
 module.exports = {
-  extends: "@u/eslint-config/node",
+  extends: "@ubermouse/eslint-config/node",
   parserOptions: { tsconfigRootDir: __dirname },
 }

@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@ubermouse/rush-rig",
+      "comment": "initial release",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@ubermouse/rush-rig"
+}

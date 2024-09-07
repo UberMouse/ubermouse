@@ -1,6 +1,7 @@
 {
-  "name": "@u/transform-executor",
+  "name": "@ubermouse/transform-executor",
   "version": "1.0.0",
+  "private": false,
   "type": "module",
   "main": "lib/index.js",
   "module": "lib/index.js",
@@ -16,11 +17,11 @@
     "@rushstack/heft": "0.67.0",
     "eslint": "8.57.0",
     "typescript": "5.5.3",
-    "@u/eslint-config": "workspace:*",
-    "@u/rush-rig": "workspace:*",
+    "@ubermouse/eslint-config": "workspace:*",
+    "@ubermouse/rush-rig": "workspace:*",
     "jest": "30.0.0-alpha.6",
     "@swc/jest": "0.2.36",
     "memfs": "4.11.1"
   },
-  "dependencies": {"@swc/core":"1.7.3","@u/code-transform":"workspace:*","p-queue":"8.0.1","piscina":"4.6.1"}
+  "dependencies": {"@swc/core":"1.7.3","@ubermouse/code-transform":"workspace:*","p-queue":"8.0.1","piscina":"4.6.1"}
 }

@@ -223,7 +223,7 @@
      * your PR branch, and in this situation "rush change" will also automatically invoke "git fetch"
      * to retrieve the latest activity for the remote main branch.
      */
-    // "url": "https://github.com/microsoft/rush-example",
+    "url": "https://github.com/UberMouse/UberMouse"
 
     /**
      * The default branch name. This tells "rush change" which remote branch to compare against.
@@ -312,24 +312,29 @@
    */
   "projects": [
     {
-      "packageName": "@u/eslint-config",
-      "projectFolder": "packages/eslint-config"
+      "packageName": "@ubermouse/eslint-config",
+      "projectFolder": "packages/eslint-config",
+      "shouldPublish": true
     },
     {
-      "packageName": "@u/rush-rig",
-      "projectFolder": "packages/rig"
+      "packageName": "@ubermouse/rush-rig",
+      "projectFolder": "packages/rig",
+      "shouldPublish": true
     },
     {
-      "packageName": "@u/code-transform",
-      "projectFolder": "packages/code-transform"
+      "packageName": "@ubermouse/code-transform",
+      "projectFolder": "packages/code-transform",
+      "shouldPublish": true
     },
     {
-      "packageName": "@u/transform-executor",
-      "projectFolder": "packages/transform-executor"
+      "packageName": "@ubermouse/transform-executor",
+      "projectFolder": "packages/transform-executor",
+      "shouldPublish": true
     },
     {
-      "packageName": "@u/rush-plugin",
-      "projectFolder": "packages/rush-plugin"
+      "packageName": "@ubermouse/rush-refactoring-plugin",
+      "projectFolder": "packages/rush-plugin",
+      "shouldPublish": true
     },
     {
       "packageName": "@test/source",

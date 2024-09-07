@@ -1,6 +1,6 @@
 import { Volume } from "memfs";
 
-import type { OperationConfig } from "@u/code-transform";
+import type { OperationConfig } from "@ubermouse/code-transform";
 
 import { _transformFiles } from "./index.js";
 
@@ -35,7 +35,7 @@ describe("transformFiles", () => {
         },
       ],
     };
-    await transformFiles(["/src/index.ts"], config);
+    await transformFiles(["/src/index.ts"], config, {});
 
     expect(volume.toJSON()).toMatchInlineSnapshot(`
       Object {

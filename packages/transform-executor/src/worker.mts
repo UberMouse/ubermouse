@@ -1,7 +1,7 @@
 import { workerData } from "piscina";
 
-import type { OperationConfig } from "@u/code-transform";
-import { transformCode } from "@u/code-transform";
+import type { OperationConfig } from "@ubermouse/code-transform";
+import { transformCode } from "@ubermouse/code-transform";
 
 export interface WorkerArgs {
   content: string;

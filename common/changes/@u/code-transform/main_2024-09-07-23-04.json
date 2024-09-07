@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@ubermouse/code-transform",
+      "comment": "initial release",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@ubermouse/code-transform"
+}
