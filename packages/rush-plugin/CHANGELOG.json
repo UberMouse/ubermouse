@@ -2,6 +2,32 @@
   "name": "@ubermouse/rush-refactoring-plugin",
   "entries": [
     {
+      "version": "1.0.3",
+      "tag": "@ubermouse/rush-refactoring-plugin_v1.0.3",
+      "date": "Sat, 07 Sep 2024 23:45:29 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "fixing incorrect artifacts published"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@ubermouse/transform-executor\" to `1.0.3`"
+          },
+          {
+            "comment": "Updating dependency \"@ubermouse/code-transform\" to `1.0.3`"
+          },
+          {
+            "comment": "Updating dependency \"@ubermouse/eslint-config\" to `1.0.3`"
+          },
+          {
+            "comment": "Updating dependency \"@ubermouse/rush-rig\" to `1.0.3`"
+          }
+        ]
+      }
+    },
+    {
       "version": "1.0.1",
       "tag": "@ubermouse/rush-refactoring-plugin_v1.0.1",
       "date": "Sat, 07 Sep 2024 23:34:12 GMT",

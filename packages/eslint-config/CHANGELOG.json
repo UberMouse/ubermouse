@@ -1,0 +1,17 @@
+{
+  "name": "@ubermouse/eslint-config",
+  "entries": [
+    {
+      "version": "1.0.3",
+      "tag": "@ubermouse/eslint-config_v1.0.3",
+      "date": "Sat, 07 Sep 2024 23:45:00 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "fixing incorrect artifacts published"
+          }
+        ]
+      }
+    }
+  ]
+}
