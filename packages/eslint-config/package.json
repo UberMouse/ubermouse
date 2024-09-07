@@ -1,6 +1,6 @@
 {
   "name": "@ubermouse/eslint-config",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "private": false,
   "description": "Shared ESLint config for UberMouse",
   "main": "lib/index.js",

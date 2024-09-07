@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "comment": "fixing incorrect artifacts published",
+      "type": "patch",
+      "packageName": "@ubermouse/eslint-config"
+    }
+  ],
+  "packageName": "@ubermouse/eslint-config",
+  "email": "taylor.lodge@koordinates.com"
+}
