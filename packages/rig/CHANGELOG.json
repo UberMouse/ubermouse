@@ -1,0 +1,17 @@
+{
+  "name": "@ubermouse/rush-rig",
+  "entries": [
+    {
+      "version": "1.0.1",
+      "tag": "@ubermouse/rush-rig_v1.0.1",
+      "date": "Sat, 07 Sep 2024 23:34:12 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "initial release"
+          }
+        ]
+      }
+    }
+  ]
+}
