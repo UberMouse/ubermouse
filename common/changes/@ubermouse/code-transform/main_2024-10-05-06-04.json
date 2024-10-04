@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@ubermouse/code-transform",
+      "comment": "Support move operations",
+      "type": "minor"
+    }
+  ],
+  "packageName": "@ubermouse/code-transform"
+}

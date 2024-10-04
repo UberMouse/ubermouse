@@ -28,9 +28,11 @@ interface MoveOperation {
    */
   to: string;
   /**
-   * Optional extra path appended to the original imports package name to target a deep import
+   * Where the symbol is imported from
+   *
+   * in `import { x } from "y"; "y" would be the importTarget
    */
-  path?: string;
+  importTarget: string;
 }
 
 export interface OperationConfig {
@@ -61,48 +63,103 @@ export async function transformCode(
     dirty = true;
   }
 
-  if (config.rename && config.rename.length > 0) {
-    const renameMap = new Map(
-      config.rename.map(({ from, to, importTarget }) => [
-        `${importTarget}:${from}`,
-        { to, renamed: false },
-      ]),
-    );
+  const renameMap = new Map(
+    (config.rename || []).map(({ from, to, importTarget }) => [
+      `${importTarget}:${from}`,
+      { to, renamed: false },
+    ]),
+  );
 
-    // First pass: Rename imports
-    traverse.default(ast, {
-      ImportDeclaration(path) {
-        const importTarget = path.node.source.value;
-        path.node.specifiers.forEach((specifier) => {
-          if (
-            t.isImportSpecifier(specifier) &&
-            t.isIdentifier(specifier.imported)
-          ) {
-            const key = `${importTarget}:${specifier.imported.name}`;
-            const renameInfo = renameMap.get(key);
-            if (renameInfo) {
-              specifier.imported.name = renameInfo.to;
-              specifier.local.name = renameInfo.to;
-              renameInfo.renamed = true;
-              markDirty();
-            }
+  const moveMap = new Map(
+    (config.move || []).map(({ target, to, importTarget }) => [
+      `${importTarget}:${target}`,
+      { to, moved: false },
+    ]),
+  );
+
+  const movedSpecifiers = new Map<string, t.ImportSpecifier[]>();
+
+  traverse.default(ast, {
+    ImportDeclaration(path) {
+      const importTarget = path.node.source.value;
+      const newSpecifiers: t.ImportSpecifier[] = [];
+
+      path.node.specifiers.forEach((specifier) => {
+        if (
+          !t.isImportSpecifier(specifier) ||
+          !t.isIdentifier(specifier.imported)
+        ) {
+          newSpecifiers.push(specifier as t.ImportSpecifier);
+          return;
+        }
+
+        const importedName = specifier.imported.name;
+        const key = `${importTarget}:${importedName}`;
+        const renameInfo = renameMap.get(key);
+        const moveInfo = moveMap.get(key);
+
+        let newName = importedName;
+        if (renameInfo) {
+          newName = renameInfo.to;
+          renameInfo.renamed = true;
+        }
+
+        if (moveInfo) {
+          const movedSpecifier = t.importSpecifier(
+            t.identifier(newName),
+            t.identifier(newName),
+          );
+
+          if (movedSpecifiers.has(moveInfo.to)) {
+            movedSpecifiers.get(moveInfo.to)!.push(movedSpecifier);
+          } else {
+            movedSpecifiers.set(moveInfo.to, [movedSpecifier]);
+          }
+
+          moveInfo.moved = true;
+          markDirty();
+        } else {
+          specifier.imported.name = newName;
+          specifier.local.name = newName;
+          newSpecifiers.push(specifier);
+        }
+
+        if (renameInfo) {
+          path.scope.rename(importedName, newName);
+          markDirty();
+        }
+      });
+
+      if (newSpecifiers.length === 0) {
+        path.remove();
+      } else {
+        path.node.specifiers = newSpecifiers;
+      }
+    },
+    Program: {
+      exit(path) {
+        const importDeclarations = path.node.body.filter(
+          (node): node is t.ImportDeclaration => t.isImportDeclaration(node),
+        );
+
+        movedSpecifiers.forEach((specifiers, importPath) => {
+          const existingImport = importDeclarations.find(
+            (decl) => decl.source.value === importPath,
+          );
+
+          if (existingImport) {
+            existingImport.specifiers.push(...specifiers);
+          } else {
+            const newImport = t.importDeclaration(
+              specifiers,
+              t.stringLiteral(importPath),
+            );
+            path.node.body.unshift(newImport);
           }
         });
       },
-    });
-
-    // Second pass: Rename references
-    traverse.default(ast, {
-      Program(path) {
-        renameMap.forEach((renameInfo, key) => {
-          if (renameInfo.renamed) {
-            const [, from] = key.split(":");
-            path.scope.rename(from, renameInfo.to);
-          }
-        });
-      },
-    });
-  }
+    },
+  });
 
   if (!dirty) {
     return code;
