@@ -8,5 +8,13 @@
   ],
   "moduleNameMapper": {
     "^(\\.{1,2}/.*)\\.js$": "$1"
-  }
+  },
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "**/*.{ts,tsx,js,jsx}",
+    "!**/node_modules/**",
+    "!**/coverage/**",
+    "!**/cypress/**"
+  ],
+  "coverageProvider": "v8"
 }

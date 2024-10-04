@@ -37,13 +37,24 @@ module.exports = async (projectFolderPath) => {
     config.testMatch = [
       "<rootDir>/src/**/?(*.)(spec|test|integration).ts?(x)"
     ];
+    config.moduleNameMapper = {
+      '^(\\.{1,2}/.*)\\.jsx?$': '$1',
+    };
+    config.extensionsToTreatAsEsm = [".ts", ".tsx"];
     config.moduleFileExtensions = ["cjs", "js", "json", "node", "ts", "tsx"];
     config.snapshotResolver = undefined;
     // config.resolver = undefined;
     // Override the default Heft transformer that maps src files to transpiled dist files
     // We want Wallaby to run against the raw source code, not the transpiled code
-    config.transform["\\.(ts|tsx)$"] = "@swc/jest";
-    config.transform["\\.(js|jsx)$"] = "@swc/jest";
+    config.transform["\\.(ts|tsx)$"] = ["@swc/jest", {
+      module: {
+        type: "es6"
+      },
+      jsc: {
+        target: "es2022"
+      },
+      sourceMaps: true
+    }];
     
     return config;
   } else {
