@@ -14,12 +14,13 @@ export class RefactorCommandLine extends CommandLineParser {
   private _verbose: CommandLineFlagParameter;
   private _fromPackage: CommandLineStringParameter;
   private _renameSymbols: CommandLineStringListParameter;
+  private _moveSymbols: CommandLineStringListParameter;
 
   public constructor() {
     super({
       toolFilename: "refactor",
       toolDescription:
-        'The "refactor" tool lets you rename symbols across your codebase exported by a specific package',
+        'The "refactor" tool lets you rename and move symbols across your codebase exported by a specific package',
     });
   }
 
@@ -46,6 +47,14 @@ export class RefactorCommandLine extends CommandLineParser {
       description:
         "The rename symbol configuration in the format of 'from,to' case-sensitive",
     });
+
+    this._moveSymbols = this.defineStringListParameter({
+      parameterLongName: "--move",
+      parameterShortName: "-m",
+      argumentName: "SYMBOL_MOVE",
+      description:
+        "The move symbol configuration in the format of 'symbol,targetPackage[,subpath]' case-sensitive",
+    });
   }
 
   protected async onExecute(): Promise<void> {
@@ -54,14 +63,27 @@ export class RefactorCommandLine extends CommandLineParser {
       eta: true,
     });
 
+    const renameConfig = this._renameSymbols.values.map((value) => {
+      const [from, to] = value.split(",");
+      return { from, to, importTarget: this._fromPackage.value! };
+    });
+
+    const moveConfig = this._moveSymbols.values.map((value) => {
+      const [target, to, subpath = ""] = value.split(",");
+      return {
+        target,
+        to,
+        importTarget: subpath
+          ? `${this._fromPackage.value!}/${subpath}`
+          : this._fromPackage.value!,
+      };
+    });
+
     await execute({
       sourcePackageName: this._fromPackage.value!,
       config: {
-        rename: this._renameSymbols.values.map((value) => {
-          const [from, to] = value.split(",");
-
-          return { from, to, importTarget: this._fromPackage.value! };
-        }),
+        rename: renameConfig,
+        move: moveConfig,
       },
       hooks: {
         onStart: (fileCount): void => {

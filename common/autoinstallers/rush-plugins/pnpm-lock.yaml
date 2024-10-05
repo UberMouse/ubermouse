@@ -1,0 +1,10 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  '@ubermouse/rush-refactoring-plugin':
+    specifier: link:../../../packages/rush-plugin
+    version: link:../../../packages/rush-plugin
