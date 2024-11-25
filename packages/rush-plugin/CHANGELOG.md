@@ -1,6 +1,13 @@
 # Change Log - @ubermouse/rush-refactoring-plugin
 
-This log was last generated on Mon, 25 Nov 2024 21:03:53 GMT and should not be manually modified.
+This log was last generated on Mon, 25 Nov 2024 21:08:57 GMT and should not be manually modified.
+
+## 1.2.0
+Mon, 25 Nov 2024 21:08:57 GMT
+
+### Minor changes
+
+- correct incorrect prior version publish
 
 ## 1.1.0
 Mon, 25 Nov 2024 21:03:53 GMT

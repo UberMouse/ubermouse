@@ -2,6 +2,26 @@
   "name": "@ubermouse/rush-refactoring-plugin",
   "entries": [
     {
+      "version": "1.2.0",
+      "tag": "@ubermouse/rush-refactoring-plugin_v1.2.0",
+      "date": "Mon, 25 Nov 2024 21:08:57 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "correct incorrect prior version publish"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@ubermouse/transform-executor\" to `1.1.0`"
+          },
+          {
+            "comment": "Updating dependency \"@ubermouse/code-transform\" to `1.2.0`"
+          }
+        ]
+      }
+    },
+    {
       "version": "1.1.0",
       "tag": "@ubermouse/rush-refactoring-plugin_v1.1.0",
       "date": "Mon, 25 Nov 2024 21:03:53 GMT",

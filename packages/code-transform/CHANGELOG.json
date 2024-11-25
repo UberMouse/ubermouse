@@ -2,6 +2,18 @@
   "name": "@ubermouse/code-transform",
   "entries": [
     {
+      "version": "1.2.0",
+      "tag": "@ubermouse/code-transform_v1.2.0",
+      "date": "Mon, 25 Nov 2024 21:08:57 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "correct incorrect prior version publish"
+          }
+        ]
+      }
+    },
+    {
       "version": "1.1.0",
       "tag": "@ubermouse/code-transform_v1.1.0",
       "date": "Mon, 25 Nov 2024 21:03:53 GMT",
