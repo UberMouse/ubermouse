@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@ubermouse/code-transform",
+      "comment": "fix import alises not being preserved",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@ubermouse/code-transform"
+}

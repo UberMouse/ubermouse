@@ -98,6 +98,7 @@ export async function transformCode(
         const renameInfo = renameMap.get(key);
         const moveInfo = moveMap.get(key);
 
+        // Get the new name if this symbol is being renamed
         let newName = importedName;
         if (renameInfo) {
           newName = renameInfo.to;
@@ -105,9 +106,18 @@ export async function transformCode(
         }
 
         if (moveInfo) {
+          // When moving a symbol to a new import, we need to:
+          // 1. Use the new name for the imported symbol
+          // 2. Preserve any existing alias (local name) if it differs from the imported name
           const movedSpecifier = t.importSpecifier(
             t.identifier(newName),
-            t.identifier(newName),
+            t.identifier(
+              // Only keep the alias if it was explicitly set (local name differs from imported name)
+              // Otherwise use the new name directly
+              specifier.local.name !== importedName
+                ? specifier.local.name
+                : newName,
+            ),
           );
 
           if (movedSpecifiers.has(moveInfo.to)) {
@@ -119,13 +129,25 @@ export async function transformCode(
           moveInfo.moved = true;
           markDirty();
         } else {
+          // For symbols that aren't being moved:
+          // 1. Always update the imported name
           specifier.imported.name = newName;
-          specifier.local.name = newName;
+          // 2. Only update the local name if it wasn't explicitly aliased
+          if (specifier.local.name === importedName) {
+            specifier.local.name = newName;
+          }
           newSpecifiers.push(specifier);
         }
 
         if (renameInfo) {
-          path.scope.rename(importedName, newName);
+          // When renaming references to this symbol:
+          // 1. If the symbol was explicitly aliased, use the alias
+          // 2. Otherwise use the new name
+          const finalName =
+            specifier.local.name !== importedName
+              ? specifier.local.name
+              : newName;
+          path.scope.rename(importedName, finalName);
           markDirty();
         }
       });

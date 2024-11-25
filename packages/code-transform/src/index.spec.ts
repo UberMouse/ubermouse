@@ -39,7 +39,7 @@ describe("transformCode", () => {
     const transformedCode = await transformCode(code, config);
 
     expect(transformedCode).toMatchInlineSnapshot(
-      `"import { c } from 'b';const b = c + 1;"`
+      `"import { c } from 'b';const b = c + 1;"`,
     );
   });
 
@@ -97,6 +97,42 @@ describe("transformCode", () => {
       import { g } from 'e';
       import { f } from 'g';
       const b = c + g;"
+    `);
+  });
+
+  it("preserves aliases when renaming imported symbols", async () => {
+    const code = `
+      import { a as aliasA } from 'b';
+      const result = aliasA + 1;
+    `;
+    const config = {
+      rename: [{ from: "a", to: "c", importTarget: "b" }],
+    };
+
+    const transformedCode = await transformCode(code, config);
+
+    expect(transformedCode).toMatchInlineSnapshot(`
+      "
+      import { c as aliasA } from 'b';
+      const result = aliasA + 1;"
+    `);
+  });
+
+  it("preserves aliases for symbols that are not being renamed", async () => {
+    const code = `
+      import { a as aliasA, b as aliasB } from 'source';
+      const result = aliasA + aliasB;
+    `;
+    const config = {
+      rename: [{ from: "a", to: "c", importTarget: "source" }],
+    };
+
+    const transformedCode = await transformCode(code, config);
+
+    expect(transformedCode).toMatchInlineSnapshot(`
+      "
+      import { c as aliasA, b as aliasB } from 'source';
+      const result = aliasA + aliasB;"
     `);
   });
 });
