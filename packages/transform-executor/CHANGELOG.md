@@ -1,6 +1,11 @@
 # Change Log - @ubermouse/transform-executor
 
-This log was last generated on Sat, 07 Sep 2024 23:45:29 GMT and should not be manually modified.
+This log was last generated on Mon, 25 Nov 2024 21:01:32 GMT and should not be manually modified.
+
+## 1.0.4
+Mon, 25 Nov 2024 21:01:32 GMT
+
+_Version update only_
 
 ## 1.0.3
 Sat, 07 Sep 2024 23:45:29 GMT
