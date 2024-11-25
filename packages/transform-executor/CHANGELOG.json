@@ -2,6 +2,21 @@
   "name": "@ubermouse/transform-executor",
   "entries": [
     {
+      "version": "1.0.4",
+      "tag": "@ubermouse/transform-executor_v1.0.4",
+      "date": "Mon, 25 Nov 2024 21:02:15 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@ubermouse/code-transform\" to `1.1.0`"
+          },
+          {
+            "comment": "Updating dependency \"@ubermouse/eslint-config\" to `1.0.4`"
+          }
+        ]
+      }
+    },
+    {
       "version": "1.0.3",
       "tag": "@ubermouse/transform-executor_v1.0.3",
       "date": "Sat, 07 Sep 2024 23:45:29 GMT",

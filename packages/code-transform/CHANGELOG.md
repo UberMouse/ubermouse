@@ -1,6 +1,13 @@
 # Change Log - @ubermouse/code-transform
 
-This log was last generated on Sat, 07 Sep 2024 23:45:29 GMT and should not be manually modified.
+This log was last generated on Mon, 25 Nov 2024 21:02:15 GMT and should not be manually modified.
+
+## 1.1.0
+Mon, 25 Nov 2024 21:02:15 GMT
+
+### Minor changes
+
+- Support move operations
 
 ## 1.0.3
 Sat, 07 Sep 2024 23:45:29 GMT
