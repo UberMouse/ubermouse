@@ -166,6 +166,5 @@ export async function transformCode(
   }
 
   const output = generate.default(ast, { retainLines: true }, code);
-
   return output.code;
 }

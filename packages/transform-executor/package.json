@@ -23,5 +23,10 @@
     "@swc/jest": "0.2.36",
     "memfs": "4.11.1"
   },
-  "dependencies": {"@swc/core":"1.7.3","@ubermouse/code-transform":"workspace:*","p-queue":"8.0.1","piscina":"4.6.1"}
+  "dependencies": {
+    "@swc/core": "1.7.3",
+    "@ubermouse/code-transform": "workspace:*",
+    "p-queue": "8.0.1",
+    "piscina": "4.6.1"
+  }
 }

@@ -1,0 +1,11 @@
+{
+  "changes": [
+    {
+      "comment": "correct incorrect prior version publish",
+      "type": "minor",
+      "packageName": "@ubermouse/code-transform"
+    }
+  ],
+  "packageName": "@ubermouse/code-transform",
+  "email": "taylor.lodge@koordinates.com"
+}
