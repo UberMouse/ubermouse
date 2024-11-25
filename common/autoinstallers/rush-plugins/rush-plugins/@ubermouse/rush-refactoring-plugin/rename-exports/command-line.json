@@ -29,7 +29,7 @@
     },
     {
       "argumentName": "MOVE_SYMBOLS",
-      "description": "The move symbol configuration in the format of 'symbol,targetPackage[,subpath]' case-sensitive",
+      "description": "The move symbol configuration in the format of 'symbol,targetPackage[,subpath]' case-sensitive. Move operations are performed BEFORE renaming, use the original symbol",
       "parameterKind": "stringList",
       "associatedCommands": ["refactor"],
       "longName": "--move",

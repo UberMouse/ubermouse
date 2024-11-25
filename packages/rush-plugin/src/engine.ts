@@ -1,6 +1,6 @@
 import path from "path";
 
-import Rush from "@microsoft/rush-lib";
+import Rush from "@rushstack/rush-sdk";
 import { parseJsonConfigFileContent, sys } from "typescript";
 
 import { type OperationConfig } from "@ubermouse/code-transform";

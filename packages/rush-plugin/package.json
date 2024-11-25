@@ -27,9 +27,8 @@
   "dependencies": {
     "@ubermouse/transform-executor": "workspace:*",
     "@ubermouse/code-transform": "workspace:*",
-    "@microsoft/rush-lib": "5.133.3",
     "lodash-es": "4.17.21",
-    "@rushstack/rush-sdk": "~5.133.4",
+    "@rushstack/rush-sdk": "5.133.4",
     "@rushstack/ts-command-line": "4.22.6",
     "terminal-kit": "~3.1.1"
   }

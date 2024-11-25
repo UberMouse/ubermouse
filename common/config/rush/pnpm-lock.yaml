@@ -218,11 +218,8 @@ importers:
 
   ../../packages/rush-plugin:
     dependencies:
-      '@microsoft/rush-lib':
-        specifier: 5.133.3
-        version: 5.133.3(@types/node@20.11.18)
       '@rushstack/rush-sdk':
-        specifier: ~5.133.4
+        specifier: 5.133.4
         version: 5.133.4
       '@rushstack/ts-command-line':
         specifier: 4.22.6

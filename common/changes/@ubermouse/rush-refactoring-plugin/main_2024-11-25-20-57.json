@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "@ubermouse/rush-refactoring-plugin",
+      "comment": "switch to rush-sdk for compatability with multiple rush versions",
+      "type": "patch"
+    }
+  ],
+  "packageName": "@ubermouse/rush-refactoring-plugin"
+}
